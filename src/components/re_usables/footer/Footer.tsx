@@ -2,11 +2,14 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col justify-between md:flex-row w-full gap-3 px-5 py-5">
+    <footer className="flex flex-col justify-between md:flex-row w-full gap-3 px-5 py-5 bg-[#fafafa] md:justify-center md:gap-[5rem] py-20">
       <section className="flex flex-col gap-3">
-        <h1 className="font-bold text-2xl">Hurupay Academy</h1>
-        <p>hurupay email</p>
-        <p>United States 651 N Broad St, New Castle, Delaware, United States</p>
+        <h1 className="font-bold text-3xl">Hurupay Academy</h1>
+        <p>hello@hurupay.com</p>
+        <p>
+          United States 651 N Broad St, New Castle, Delaware, <br />
+          United States
+        </p>
       </section>
       <section>
         <h1 className="font-medium text-2xl">Link 1</h1>
