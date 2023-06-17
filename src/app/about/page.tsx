@@ -24,11 +24,15 @@ export default function About() {
           <hr className="border-4 border-[#222] w-full" />
         </div>
 
-        <div className="px-5 py-8 flex flex-col items-center gap-4 md:flex-row justify-around">
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
-          <ProfileCard />
+        <div className="w-full flex justify-center items-center">
+          <div className="px-5 py-8 flex flex-wrap flex-col items-center gap-8 md:flex-row justify-start">
+            <ProfileCard name="Philip Mburu" title="CEO Hurupay" />
+            <ProfileCard name="James Mugambi" title="COO Hurupay" />
+            <ProfileCard name="Allan Okoth" title="CTO Hurupay" />
+            <ProfileCard name="Pascal Mathias" title="Board Member Hurupay" />
+            <ProfileCard name="Collins Wanga" title="Community Manager" />
+            <ProfileCard name="Daniel Byiringiro" title="Cofounder UniGhana" />
+          </div>
         </div>
       </div>
       <Footer />

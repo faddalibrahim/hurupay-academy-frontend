@@ -13,7 +13,7 @@ export default function ProfileCard({
             minus modi beatae rem `,
 }: ProfileCardProps) {
   return (
-    <div className="flex flex-col bg-[#222] w-[18rem] shadow-lg rounded-md px-8 py-5 gap-5">
+    <div className="flex flex-col bg-[#222] w-[20rem] shadow-lg rounded-md px-8 py-5 gap-5">
       <div className="flex flex-col gap-10">
         <div className="flex justify-between">
           <div className="w-[5rem] h-[5rem] border-3 border-white">
@@ -26,7 +26,7 @@ export default function ProfileCard({
           </div>
           <section>
             <h1 className="text-[#FFC100] text-lg">{name}</h1>
-            <p className="text-white">{title}</p>
+            <small className="text-white">{title}</small>
           </section>
         </div>
         <div>
