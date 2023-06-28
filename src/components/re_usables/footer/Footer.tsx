@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { FacebookIcon, LinkedinIcon, TwitterIcon } from "../icons/Icons";
 
 export default function Footer() {
   return (
@@ -15,10 +16,16 @@ export default function Footer() {
       <section>
         <h1 className="font-medium text-2xl">Company</h1>
         <div className="flex flex-col gap-3 py-2">
-          <Link href="/privacy" className="text-gray-500 hover:text-current">
+          <Link
+            href="/privacy-policy"
+            className="text-gray-500 hover:text-current"
+          >
             Privacy Policy
           </Link>
-          <Link href="/contact" className="text-gray-500 hover:text-current">
+          <Link
+            href="/terms-of-service"
+            className="text-gray-500 hover:text-current"
+          >
             Terms of Service
           </Link>
           <Link
@@ -46,9 +53,15 @@ export default function Footer() {
       <section>
         <h1 className="font-medium text-2xl">Socials</h1>
         <div className="flex gap-3 py-2">
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href="https://facebook.com/hurupay-academy">
+            <FacebookIcon />
+          </Link>
+          <Link href="https://twitter.com/hurupay-academy">
+            <TwitterIcon />
+          </Link>
+          <Link href="https://linkedin.com/hurupay-academy">
+            <LinkedinIcon />
+          </Link>
         </div>
       </section>
     </footer>
