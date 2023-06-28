@@ -1,11 +1,8 @@
-import Footer from "@components/re_usables/footer/Footer";
-import Navbar from "@components/re_usables/navbar/Navbar";
-import SubscribeToNewsletter from "@components/re_usables/subscribe_to_newsletter/SubscribeToNewsletter";
+import AppFrame from "@components/re_usables/app_frame/AppFrame";
 
 export default function Web3() {
   return (
-    <div>
-      <Navbar />
+    <AppFrame>
       <div className="p-8 md:px-20">
         <h1 className="text-2xl font-medium">Intro to Web 3</h1>
         <br />
@@ -65,8 +62,6 @@ export default function Web3() {
           are limitless!
         </article>
       </div>
-      <SubscribeToNewsletter />
-      <Footer />
-    </div>
+    </AppFrame>
   );
 }
