@@ -51,7 +51,7 @@ export default function Web3() {
           entertainment, commerce, education, and social collaboration.
           <br />
           <br />
-          Join uson this transformative journey into the world of Web 3.0.
+          Join us on this transformative journey into the world of Web 3.0.
           Explore the technologies, platforms, and applications that are shaping
           the future of the internet. Discover how you can leverage the power of
           blockchain, decentralized finance (DeFi), non-fungible tokens (NFTs),

@@ -1,3 +1,9 @@
+import AppFrame from "@components/re_usables/app_frame/AppFrame";
+
 export default function Resources() {
-  return <div>Resources</div>;
+  return (
+    <AppFrame>
+      <div>Newsletter</div>
+    </AppFrame>
+  );
 }
