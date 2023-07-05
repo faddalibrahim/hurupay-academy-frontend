@@ -6,7 +6,7 @@ export default function Education() {
     <AppFrame>
       <div className="flex flex-col gap-10 px-4 py-10">
         <div className="flex flex-wrap flex-col md:justify-center md:flex-row items-center gap-5">
-          <ArticleCard />
+          <ArticleCard link="/education/welcome-to-the-void" />
           <ArticleCard />
           <ArticleCard />
           <ArticleCard />

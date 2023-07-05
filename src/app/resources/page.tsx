@@ -4,7 +4,7 @@ import ArticleCard from "@components/re_usables/article_card/ArticleCard";
 export default function Resources() {
   return (
     <AppFrame>
-      <div className="flex flex-col gap-5 p-10">
+      <div className="flex flex-col gap-5 p-10 px-20">
         <h1 className="text-2xl">Web3 Resources</h1>
         <div className="flex gap-4">
           <div className="flex gap-2">
