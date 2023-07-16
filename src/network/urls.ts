@@ -1,5 +1,5 @@
 // general
-export const BASE_URL = "http://localhost:1337";
+export const BASE_URL = "http://127.0.0.1:1337";
 export const IMAGE_POPULATER = "populate=*";
 export const SORT_DESCENDING = "sort=id:desc";
 
