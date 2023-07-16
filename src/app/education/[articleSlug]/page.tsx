@@ -1,43 +1,64 @@
-// import { useRouter } from "next/router";
-
 import AppFrame from "@components/re_usables/app_frame/AppFrame";
-// import Image from "next/image";
-import type { InferGetServerSidePropsType, GetServerSideProps } from "next";
-import type { InferGetStaticPropsType, GetStaticProps } from "next";
+import Image from "next/image";
+import { getArticleBySlug, parseMarkdown } from "@network/functions";
+import { BASE_URL } from "@network/urls";
+import CommentSection from "@components/page_components/comment_section/CommentSection";
 
-type Article = {
-  data?: any;
-  meta?: any;
+type ArticleParams = {
+  params: {
+    articleSlug: string;
+  };
 };
 
-export const getStaticProps: GetStaticProps<{
-  article: Article;
-}> = async () => {
-  //   const res = await fetch(
-  //     `http://localhost:1337/api/articles?filters[slug][$eq]=welcome-to-the-void-a-long-await&populate=*`
-  //   );
-  const res = await fetch("https://api.github.com/repos/vercel/next.js");
-  const article = await res.json();
-  return { props: { article } };
-};
+export default async function Article({ params }: ArticleParams) {
+  const article = await getArticleBySlug(params.articleSlug);
 
-export default function Article({
-  article,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log("hey", article);
-  //   const router = useRouter();
-  //   return <div>{router.query.articleId}</div>;
+  if (!article.data.length) {
+    return (
+      <AppFrame>
+        <>
+          <h1>404</h1>
+          <p>Sorry! The article you are looking for cannot be found</p>
+        </>
+      </AppFrame>
+    );
+  }
+
+  const { title, content, publishedAt, featuredImage, comments } = await article
+    .data[0].attributes;
+  const articleId = article.data[0].id;
+  const articleContent = await parseMarkdown(content);
+
   return (
     <AppFrame>
-      <article>
-        {/* <h1>{article.data[0].attributes.title}</h1> */}
-        {/* <h1>{String(article)}</h1> */}
-      </article>
+      <div className="flex flex-col justify-center items-center bg-gray-100">
+        <div className="p-8 md:w-4/6 bg-white">
+          <article>
+            <div>
+              <Image
+                src={`${BASE_URL}${featuredImage.data.attributes.url}`}
+                alt="Article Featured Image"
+                width={0}
+                height={0}
+                loading="lazy"
+                style={{ width: "100%", height: "auto" }}
+              />
+              <br />
+              <h1 className="text-2xl md:text-4xl font-bold text-capitalise">
+                {title}
+              </h1>
+              <section className="text-gray-500 mt-1 mb-2">
+                <small>
+                  {new Date(publishedAt.split("T")[0]).toDateString()}
+                </small>{" "}
+                | <small>{comments?.data?.length ?? 0} comment(s)</small>
+              </section>
+              <p dangerouslySetInnerHTML={{ __html: articleContent }}></p>
+            </div>
+          </article>
+          <CommentSection comments={comments} articleId={articleId} />
+        </div>
+      </div>
     </AppFrame>
   );
 }
-
-// const article = getArticleBySlug(context.query.articleId);
-//localhost:1337/api/articles/1?populate=*
-// const article = await fetch(`http://localhost:1337/api/articles/${context.query.articleId}`);
-// const article = await fetch(`http://localhost:1337/api/articles?filters[slug][$eq]=${context.query.articleId}&populate=*`);

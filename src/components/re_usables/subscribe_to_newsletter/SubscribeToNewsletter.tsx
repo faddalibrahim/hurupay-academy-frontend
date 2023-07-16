@@ -1,7 +1,44 @@
+"use client";
 import Image from "next/image";
 import Button from "../button/Button";
 import Link from "next/link";
+import { addUserEmailToNewsletter } from "@network/functions";
 export default function SubscribeToNewsletter() {
+  const handleNewsletterSubscription = async (e: any) => {
+    e.preventDefault();
+    let email = e.target.email.value.trim();
+    let userhasAgreed = e.target.agreed.checked;
+
+    if (!email.length) {
+      alert("Please enter your email address");
+      return;
+    }
+
+    if (!userhasAgreed) {
+      alert("Please, read and agree to our terms of service");
+      return;
+    }
+
+    try {
+      let newsletterResponse = await addUserEmailToNewsletter(email);
+      console.log(newsletterResponse);
+      if (newsletterResponse.data) {
+        alert("You have been successfully subscribed to our newsletter");
+        e.target.reset();
+        return;
+      }
+
+      if (newsletterResponse.error?.name === "ValidationError") {
+        alert("You are already subscribed to our newsletter");
+        e.target.reset();
+        return;
+      }
+    } catch (error: any) {
+      console.log(error);
+      alert("something went wrong; please, try again later");
+    }
+  };
+
   return (
     <div className="bg-[#F5F5F5] px-5 py-10 w-screen flex flex-col justify-center items:center md:flex-row md:justify-center md:gap-20 md:items-center">
       <div>
@@ -21,25 +58,29 @@ export default function SubscribeToNewsletter() {
             Be the first to recieve our latest updates and offerings
           </small>
         </div>
-        <div className="flex flex-col gap-4">
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={handleNewsletterSubscription}
+        >
           <div className="flex flex-col md:flex-row gap-3">
             <input
-              type="text"
+              type="email"
               placeholder="enter your email address"
               className="border border-[#E6E8EA] outline-none rounded px-5 py-5"
               required
+              name="email"
             />
             <Button>subscribe</Button>
           </div>
           <div className="flex gap-2 items-center">
             <input
               type="checkbox"
-              name=""
-              id=""
+              name="agreed"
+              id="agreed"
               required
               className="accent-[#FFA800] w-15 h-15"
             />
-            <p>
+            <label htmlFor="agreed" className="cursor-pointer">
               I have read and agreed to Hurupay Academy’s{" "}
               <Link
                 href="/privacy"
@@ -47,9 +88,9 @@ export default function SubscribeToNewsletter() {
               >
                 Terms of Service
               </Link>
-            </p>
+            </label>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );

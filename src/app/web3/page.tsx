@@ -4,10 +4,10 @@ export default function Web3() {
   return (
     <AppFrame>
       <div className="p-8 md:px-20">
-        <h1 className="text-2xl font-medium">Intro to Web 3</h1>
+        <h1 className="text-2xl font-medium font-semibold">Intro to Web 3</h1>
         <br />
         <article>
-          Step into the exciting world of Web 3.0, where the internet is
+           <strong className="text-2xl md:text-3xl">Step Into</strong> the exciting world of Web 3.0, where the internet is
           transformed into a decentralized, user-centric ecosystem that empowers
           individuals, fosters collaboration, and revolutionizes online
           interactions. With groundbreaking technologies such as blockchain,

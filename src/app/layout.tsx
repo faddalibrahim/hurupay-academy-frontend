@@ -1,7 +1,7 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 export const metadata = {
   title: "Hurupay Academy",
@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`bg-white ${inter.className}`}>{children}</body>
+      <body className={`bg-white ${poppins.className}`}>{children}</body>
     </html>
   );
 }

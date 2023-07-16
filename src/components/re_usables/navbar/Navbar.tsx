@@ -12,7 +12,7 @@ export default function Navbar() {
   console.log(pathname);
 
   return (
-    <nav className="shadow-sm flex flex-col py-5 px-8 md:flex-row md:justify-between md:items-center">
+    <nav className="relative z-10 bg-white shadow-[rgba(0,0,0,0.03)_0px_3px_5px] flex flex-col py-5 px-8 md:flex-row md:justify-between md:items-center">
       <div className="flex justify-between items-center py-5">
         <h1 className="text-xl font-bold">Hurupay Academy</h1>
         <span
@@ -31,10 +31,12 @@ export default function Navbar() {
           <Link
             key={route}
             href={`/${index ? route : ""}`}
-            className={`py-2 text-lg hover:text-[#FFC100] hover:border-b-[0.15rem] hover:border-[#FFC100] ${
-              pathname.endsWith(route)
-                ? "text-[#FFC100] font-bold font-medium border-b-[0.15rem] border-[#FFC100]"
-                : "text-gray-500"
+            className={`py-2 border-b-[0.15rem] hover:text-[#FFC100] hover:border-[#FFC100] ${
+              index === 0 && pathname === "/"
+                ? "text-[#FFC100] font-bold font-medium border-[#FFC100]"
+                : pathname.includes(route)
+                ? "text-[#FFC100] font-bold font-medium border-[#FFC100]"
+                : "text-gray-500 border-transparent"
             }`}
           >
             {route}

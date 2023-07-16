@@ -6,8 +6,8 @@ export default function Footer() {
     <footer className="flex flex-col justify-between md:flex-row w-full gap-3 px-8 py-10 bg-[#fafafa] md:justify-center md:gap-[5rem] md:py-20">
       <section className="flex flex-col gap-3">
         <h1 className="font-bold text-3xl">Hurupay Academy</h1>
-        <p className="text-gray-500">hurupayacademy@gmail.com</p>
-        <p className="text-gray-500">
+        <p className="text-gray-500 m-0">hurupayacademy@gmail.com</p>
+        <p className="text-gray-500 m-0">
           1 University Drive,Ashesi University,
           <br />
           Berekuso, ER, Ghana

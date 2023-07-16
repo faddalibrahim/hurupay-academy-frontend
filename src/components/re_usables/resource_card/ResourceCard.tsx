@@ -1,17 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 
-type NewsCardProps = {
+type ResourceCardProps = {
   link?: string;
   image?: string;
   title?: string;
 };
 
-export default function NewsCard({
+export default function ResourceCard({
   link = "/",
   image = "crypto-graph.jpg",
   title = "Title",
-}: NewsCardProps) {
+}: ResourceCardProps) {
   return (
     <div className="bg-white w-fit shadow-md rounded-md w-[15rem] h-[17rem]">
       <Link href={link}>
