@@ -11,7 +11,7 @@ export default async function Resources({ searchParams }: any) {
 
   
   try{
-     resources = await getAllNews(searchParams?.page ?? 1);
+     resources = await getAllResources(searchParams?.page ?? 1);
      allResources = news.data;
      pagination = news.meta.pagination;
   }catch(e){
