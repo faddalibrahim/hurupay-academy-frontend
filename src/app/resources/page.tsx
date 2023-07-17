@@ -4,20 +4,17 @@ import { getAllResources } from "@network/functions";
 import Link from "next/link";
 
 export default async function Resources({ searchParams }: any) {
- let resources;
-  let allResources: any[] = []
+  let resources;
+  let allResources: any[] = [];
   let pagination;
 
-
-  
-  try{
-     resources = await getAllResources(searchParams?.page ?? 1);
-     allResources = news.data;
-     pagination = news.meta.pagination;
-  }catch(e){
-    console.log(e)
+  try {
+    resources = await getAllResources(searchParams?.page ?? 1);
+    allResources = resources.data;
+    pagination = resources.meta.pagination;
+  } catch (e) {
+    console.log(e);
   }
-
 
   return (
     <AppFrame>
