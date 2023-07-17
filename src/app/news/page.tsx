@@ -4,15 +4,25 @@ import { getAllNews } from "@network/functions";
 import Link from "next/link";
 
 export default async function News({ searchParams }: any) {
-  const NEWS = await getAllNews(searchParams?.page ?? 1);
-  const ALL_NEWS = NEWS.data;
-  const { pagination: PAGINATION } = NEWS.meta;
+  let news;
+  let allNews: any[] = []
+  let pagination;
+
+
+  try{
+     news = await getAllNews(searchParams?.page ?? 1);
+    allNews = news.data;
+    pagination = news.meta.pagination;
+  }catch(e){
+    console.log(e)
+  }
+
   return (
     <AppFrame>
       <div className="flex flex-col gap-10 px-4 py-10">
-        <h1 className="text-lg">News ({PAGINATION.total})</h1>
+        <h1 className="text-lg">News ({pagination?.total})</h1>
         <div className="flex flex-wrap flex-col md:justify-start md:flex-row items-center gap-5">
-          {ALL_NEWS.map((news: any) => {
+          {allNews.map((news: any) => {
             const { id } = news;
             const { title, link, featuredImageUrl } = news.attributes;
             return (
@@ -26,12 +36,12 @@ export default async function News({ searchParams }: any) {
           })}
         </div>
         <div className="flex justify-center items-center gap-4">
-          {PAGINATION.page > 1 && (
-            <Link href={`/news?page=${PAGINATION.page - 1}`}>prev</Link>
+          {pagination?.page > 1 && (
+            <Link href={`/news?page=${pagination?.page - 1}`}>prev</Link>
           )}
-          {PAGINATION.page} of {PAGINATION.pageCount}
-          {PAGINATION.page < PAGINATION.pageCount && (
-            <Link href={`/news?page=${PAGINATION.page + 1}`}>next</Link>
+          {pagination?.page} of {pagination?.pageCount}
+          {pagination?.page < pagination?.pageCount && (
+            <Link href={`/news?page=${pagination?.page + 1}`}>next</Link>
           )}
         </div>
       </div>

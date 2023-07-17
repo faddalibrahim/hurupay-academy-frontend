@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Welcome() {
   return (
-    <div className="bg-[#111] bg-gradient-to-r from-[#111] to-[#222] p-5">
+    <div className="bg-[#111] bg-gradient-to-r from-[#111] to-[#222] px-5 py-[4rem]">
       <div className="flex justify-center pt-10 animate-pulse">
         <svg
           width="172"

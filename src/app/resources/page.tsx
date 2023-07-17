@@ -4,13 +4,25 @@ import { getAllResources } from "@network/functions";
 import Link from "next/link";
 
 export default async function Resources({ searchParams }: any) {
-  const RESOURCES = await getAllResources(searchParams?.page ?? 1);
-  const ALL_RESOURCES = RESOURCES.data;
-  const { pagination: PAGINATION } = RESOURCES.meta;
+ let resources;
+  let allResources: any[] = []
+  let pagination;
+
+
+  
+  try{
+     resources = await getAllNews(searchParams?.page ?? 1);
+     allResources = news.data;
+     pagination = news.meta.pagination;
+  }catch(e){
+    console.log(e)
+  }
+
+
   return (
     <AppFrame>
       <div className="flex flex-col gap-10 px-4 py-10">
-        <h1 className="text-lg">Resources ({PAGINATION.total})</h1>
+        <h1 className="text-lg">Resources ({pagination?.total})</h1>
         {/* <div className="flex gap-4">
           <div className="flex gap-2">
             <input
@@ -47,7 +59,7 @@ export default async function Resources({ searchParams }: any) {
           </div>
         </div> */}
         <div className="flex flex-col flex-wrap gap-10 md:flex-row">
-          {ALL_RESOURCES.map((resource: any) => {
+          {allResources.map((resource: any) => {
             const { id } = resource;
             const { title, link, featuredImageUrl } = resource.attributes;
             return (
@@ -61,12 +73,12 @@ export default async function Resources({ searchParams }: any) {
           })}
         </div>
         <div className="flex justify-center items-center gap-4">
-          {PAGINATION.page > 1 && (
-            <Link href={`/resources?page=${PAGINATION.page - 1}`}>prev</Link>
+          {pagination?.page > 1 && (
+            <Link href={`/resources?page=${pagination?.page - 1}`}>prev</Link>
           )}
-          {PAGINATION.page} of {PAGINATION.pageCount}
-          {PAGINATION.page < PAGINATION.pageCount && (
-            <Link href={`/resources?page=${PAGINATION.page + 1}`}>next</Link>
+          {pagination?.page} of {pagination?.pageCount}
+          {pagination?.page < pagination?.pageCount && (
+            <Link href={`/resources?page=${pagination?.page + 1}`}>next</Link>
           )}
         </div>
       </div>
