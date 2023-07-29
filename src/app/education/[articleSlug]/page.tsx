@@ -36,7 +36,7 @@ export default async function Article({ params }: ArticleParams) {
           <article>
             <div>
               <Image
-                src={`${BASE_URL}${featuredImage.data.attributes.url}`}
+                src={`${BASE_URL}${featuredImage.data[0].attributes.url}`}
                 alt="Article Featured Image"
                 width={0}
                 height={0}

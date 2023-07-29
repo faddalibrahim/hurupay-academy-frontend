@@ -15,6 +15,10 @@ export default async function Education({ searchParams }: any) {
     articles = await getAllArticles(searchParams?.page ?? 1);
     allArticles = articles.data;
     pagination = articles.meta.pagination;
+    // console.log(allArticles[0].attributes.featuredImage.data.attributes)
+    // console.log(allArticles[0].attributes.featuredImage.data)
+    // console.log(allArticles[0].attributes.featuredImage.data.attributes)
+    console.log(`${BASE_URL}`)
   } catch (e) {
     console.log(e);
   }
@@ -24,15 +28,16 @@ export default async function Education({ searchParams }: any) {
       <div className="flex flex-col gap-10 px-4 py-10">
         <h1 className="text-lg">Articles ({pagination?.total})</h1>
         <div className="flex flex-wrap flex-col md:justify-start md:flex-row items-center gap-5">
-          {allArticles.map((article: any) => {
+          {allArticles?.map((article: any) => {
             const { id } = article;
             const { title, publishedAt, featuredImage, slug } =
               article.attributes;
+              console.log(featuredImage.data[0])
             return (
               <ArticleCard
                 key={id}
                 link={`/education/${slug}`}
-                image={`${BASE_URL}${featuredImage.data.attributes.url}`}
+                image={`${BASE_URL}${featuredImage.data[0]?.attributes?.url}`}
                 title={title}
                 date={new Date(publishedAt.split("T")[0]).toDateString()}
               />

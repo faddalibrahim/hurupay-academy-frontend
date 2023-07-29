@@ -11,6 +11,7 @@ export default async function RecentArticles() {
 
   try {
     recentArticles = await getRecentArticles(ARTICLE_COUNT);
+    console.log(recentArticles);
   } catch (e) {
     console.log(e);
     recentArticles = [];
@@ -28,7 +29,7 @@ export default async function RecentArticles() {
         </Button>
       </div>
       <div>
-        <div className="flex flex-col md:flex-row md:justify-center items-center gap-5">
+        <div className="flex flex-col md:flex-row md:justify-start items-center gap-5">
           {recentArticles.map((article: any) => {
             const { id } = article;
             const { title, content, publishedAt, featuredImage, slug } =
@@ -37,7 +38,7 @@ export default async function RecentArticles() {
               <ArticleCard
                 key={id}
                 link={`/education/${slug}`}
-                image={`${BASE_URL}${featuredImage.data.attributes.url}`}
+                image={`${BASE_URL}${featuredImage.data[0].attributes.url}`}
                 title={title}
                 date={new Date(publishedAt.split("T")[0]).toDateString()}
               />
