@@ -38,7 +38,7 @@ export default async function RecentArticles() {
               <ArticleCard
                 key={id}
                 link={`/education/${slug}`}
-                image={`${BASE_URL}${featuredImage.data[0].attributes.url}`}
+                image={`${featuredImage.data[0].attributes.url}`}
                 title={title}
                 date={new Date(publishedAt.split("T")[0]).toDateString()}
               />

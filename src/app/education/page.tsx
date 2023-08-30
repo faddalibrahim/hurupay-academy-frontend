@@ -18,7 +18,7 @@ export default async function Education({ searchParams }: any) {
     // console.log(allArticles[0].attributes.featuredImage.data.attributes)
     // console.log(allArticles[0].attributes.featuredImage.data)
     // console.log(allArticles[0].attributes.featuredImage.data.attributes)
-    console.log(`${BASE_URL}`)
+    console.log(`${BASE_URL}`);
   } catch (e) {
     console.log(e);
   }
@@ -32,12 +32,12 @@ export default async function Education({ searchParams }: any) {
             const { id } = article;
             const { title, publishedAt, featuredImage, slug } =
               article.attributes;
-              console.log(featuredImage.data[0])
+            console.log(featuredImage.data[0]);
             return (
               <ArticleCard
                 key={id}
                 link={`/education/${slug}`}
-                image={`${BASE_URL}${featuredImage.data[0]?.attributes?.url}`}
+                image={`${featuredImage.data[0]?.attributes?.url}`}
                 title={title}
                 date={new Date(publishedAt.split("T")[0]).toDateString()}
               />
