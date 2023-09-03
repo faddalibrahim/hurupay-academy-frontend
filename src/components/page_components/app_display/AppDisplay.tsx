@@ -1,5 +1,6 @@
 import Button from "@components/re_usables/button/Button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AppDisplay() {
   return (
@@ -11,7 +12,12 @@ export default function AppDisplay() {
           <br />
           <span className="text-[#FFC100] text-5xl">Hurupay</span>
         </h1>
-        <Button>Go to App</Button>
+        <Link
+          className={`px-10 py-5 font-medium text-[#333] rounded bg-gradient-to-r from-[#FFC100] to-[#FFA800] hover:bg-gradient-to-l`}
+          href="https://hurupay.com"
+        >
+          Go to App
+        </Link>
       </div>
       <div>
         <Image

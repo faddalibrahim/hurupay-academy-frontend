@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from "../icons/Icons";
+import { FacebookIcon, LinkedinIcon, TwitterIcon,InstagramIcon,MediumIcon } from "../icons/Icons";
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
         <h1 className="font-bold text-3xl">Hurupay Academy</h1>
         <p className="text-gray-500 m-0">hurupayacademy@gmail.com</p>
         <p className="text-gray-500 m-0">
-          1 University Drive,Ashesi University,
+          1 University Avenue, Ashesi University,
           <br />
           Berekuso, ER, Ghana
         </p>
@@ -16,17 +16,11 @@ export default function Footer() {
       <section>
         <h1 className="font-medium text-2xl">Company</h1>
         <div className="flex flex-col gap-3 py-2">
-          <Link
-            href="/privacy-policy"
-            className="text-gray-500 hover:text-current"
-          >
-            Privacy Policy
+          <Link href="/about" className="text-gray-500 hover:text-current">
+            About
           </Link>
-          <Link
-            href="/terms-of-service"
-            className="text-gray-500 hover:text-current"
-          >
-            Terms of Service
+          <Link href="/web3" className="text-gray-500 hover:text-current">
+            Intro to Web3
           </Link>
           <Link
             href="https://hurupay.com"
@@ -53,14 +47,17 @@ export default function Footer() {
       <section>
         <h1 className="font-medium text-2xl">Socials</h1>
         <div className="flex gap-3 py-2">
-          <Link href="https://facebook.com/hurupay-academy">
-            <FacebookIcon />
+          <Link href="https://www.instagram.com/hurupayapp/">
+            <InstagramIcon />
           </Link>
-          <Link href="https://twitter.com/hurupay-academy">
+          <Link href="https://twitter.com/HurupayApp">
             <TwitterIcon />
           </Link>
-          <Link href="https://linkedin.com/hurupay-academy">
+          <Link href="https://www.linkedin.com/company/hurupay/">
             <LinkedinIcon />
+          </Link>
+          <Link href="https://medium.com/@hurupayacademy">
+            <MediumIcon/>
           </Link>
         </div>
       </section>

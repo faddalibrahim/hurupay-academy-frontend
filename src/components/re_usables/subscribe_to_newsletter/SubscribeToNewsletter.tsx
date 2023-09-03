@@ -7,17 +7,17 @@ export default function SubscribeToNewsletter() {
   const handleNewsletterSubscription = async (e: any) => {
     e.preventDefault();
     let email = e.target.email.value.trim();
-    let userhasAgreed = e.target.agreed.checked;
+    // let userhasAgreed = e.target.agreed.checked;
 
     if (!email.length) {
       alert("Please enter your email address");
       return;
     }
 
-    if (!userhasAgreed) {
-      alert("Please, read and agree to our terms of service");
-      return;
-    }
+    // if (!userhasAgreed) {
+    //   alert("Please, read and agree to our terms of service");
+    //   return;
+    // }
 
     try {
       let newsletterResponse = await addUserEmailToNewsletter(email);
@@ -72,7 +72,7 @@ export default function SubscribeToNewsletter() {
             />
             <Button>subscribe</Button>
           </div>
-          <div className="flex gap-2 items-center">
+          {/* <div className="flex gap-2 items-center">
             <input
               type="checkbox"
               name="agreed"
@@ -89,7 +89,7 @@ export default function SubscribeToNewsletter() {
                 Terms of Service
               </Link>
             </label>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>
