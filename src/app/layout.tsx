@@ -8,8 +8,8 @@ export const metadata = {
   description: "Hurupay Academy - Web3 Learning Platform",
   category: "Web 3.0 & Cryptocurrency",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
+    icon: "/hurupay-logo.png",
+    shortcut: "/hurupay-logo.png",
     apple: "/hurupay-logo.png",
   },
 };
