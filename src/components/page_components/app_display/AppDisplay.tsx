@@ -21,7 +21,7 @@ export default function AppDisplay() {
       </div>
       <div>
         <Image
-          src="/app.png"
+          src="/hurupay_app_final_mockup.png"
           width={300}
           height={300}
           alt="Picture of the article"

@@ -5,16 +5,15 @@ import Link from "next/link";
 
 export default async function News({ searchParams }: any) {
   let news;
-  let allNews: any[] = []
+  let allNews: any[] = [];
   let pagination;
 
-
-  try{
-     news = await getAllNews(searchParams?.page ?? 1);
+  try {
+    news = await getAllNews(searchParams?.page ?? 1);
     allNews = news.data;
     pagination = news.meta.pagination;
-  }catch(e){
-    console.log(e)
+  } catch (e) {
+    console.log(e);
   }
 
   return (

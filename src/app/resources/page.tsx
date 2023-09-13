@@ -55,7 +55,8 @@ export default async function Resources({ searchParams }: any) {
             </label>
           </div>
         </div> */}
-        <div className="flex flex-col flex-wrap gap-10 md:flex-row">
+        {/* <div className="flex flex-col flex-wrap gap-10 md:flex-row"> */}
+        <div className="flex flex-wrap flex-col md:justify-start md:flex-row items-center gap-5">
           {allResources.map((resource: any) => {
             const { id } = resource;
             const { title, link, featuredImageUrl } = resource.attributes;

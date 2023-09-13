@@ -2,7 +2,6 @@
 import AppFrame from "@components/re_usables/app_frame/AppFrame";
 import ArticleCard from "@components/re_usables/article_card/ArticleCard";
 import { getAllArticles } from "@network/functions";
-import { BASE_URL } from "@network/urls";
 import Link from "next/link";
 
 export default async function Education({ searchParams }: any) {
@@ -15,10 +14,6 @@ export default async function Education({ searchParams }: any) {
     articles = await getAllArticles(searchParams?.page ?? 1);
     allArticles = articles.data;
     pagination = articles.meta.pagination;
-    // console.log(allArticles[0].attributes.featuredImage.data.attributes)
-    // console.log(allArticles[0].attributes.featuredImage.data)
-    // console.log(allArticles[0].attributes.featuredImage.data.attributes)
-    console.log(`${BASE_URL}`);
   } catch (e) {
     console.log(e);
   }

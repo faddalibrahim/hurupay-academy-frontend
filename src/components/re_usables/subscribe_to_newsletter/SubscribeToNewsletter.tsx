@@ -13,12 +13,6 @@ export default function SubscribeToNewsletter() {
       alert("Please enter your email address");
       return;
     }
-
-    // if (!userhasAgreed) {
-    //   alert("Please, read and agree to our terms of service");
-    //   return;
-    // }
-
     try {
       let newsletterResponse = await addUserEmailToNewsletter(email);
       console.log(newsletterResponse);
